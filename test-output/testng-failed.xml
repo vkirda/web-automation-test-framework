@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Demo Suite]">
+  <test thread-count="5" name="Demo Test(failed)">
+    <classes>
+      <class name="testCasess.Demo">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="demo"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- testCasess.Demo -->
+    </classes>
+  </test> <!-- Demo Test(failed) -->
+</suite> <!-- Failed suite [Demo Suite] -->

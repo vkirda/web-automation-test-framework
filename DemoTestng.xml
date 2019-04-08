@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Demo Suite">
+
+	<test thread-count="5" name="Demo Test">
+
+		<parameter name="name" value="Vilmantas" />
+		<parameter name="lastName" value="Kirda" />
+		<parameter name="continent" value="Europe" />
+		<parameter name="webECommands" value="WebElement Commands" />
+		<parameter name="header1" value="Automation Practice Form" />
+		<parameter name="header2" value="Automation Practice Table" />
+		<parameter name="downloadDirLocation"
+			value="C:\\Users\\Vilmis\\Downloads" />
+
+
+		<classes>
+			<class name="testCasess.Demo" />
+		</classes>
+
+	</test> <!-- Demo Test -->
+
+</suite> <!-- Demo Suite -->
