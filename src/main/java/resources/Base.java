@@ -28,6 +28,7 @@ public class Base {
 
 	public WebDriver driver;
 	public Properties props;
+	private static final Logger logger = LogManager.getLogger(Base.class.getName());
 
 	// Making method for driver initialization. This will be used many times.
 	public WebDriver initializeDriver() {
@@ -75,9 +76,6 @@ public class Base {
 			driver = new EdgeDriver();
 		}
 
-		// Waiting page to load. (Might be error if no wait)
-//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
 		return driver;
 
 	}
@@ -92,7 +90,9 @@ public class Base {
 		do {
 			try {
 				isPresent = driver.findElements(locator).size() > 0;
-				System.out.println(locator.toString() + " rado? - " + isPresent + "; Ieskoma " + counter
+//				System.out.println(locator.toString() + " rado? - " + isPresent + "; Ieskoma " + counter
+//						+ " kartu, laiko intervalas 1s");
+				logger.info(locator.toString() + " rado? - " + isPresent + "; Ieskoma " + counter
 						+ " kartu, laiko intervalas 1s");
 
 				counter++;
@@ -103,10 +103,13 @@ public class Base {
 				}
 			} catch (StaleElementReferenceException e) {
 				isPresent = false;
-				System.out.println("StaleElementReferenceException - elemento paieska kartojama " + counter);
+//				System.out.println("StaleElementReferenceException - elemento paieska kartojama " + counter);
+				logger.error("StaleElementReferenceException - elemento paieska kartojama " + counter);
 			} catch (NoSuchElementException e1) {
 				isPresent = false;
-				System.out.println("NoSuchElementException - elemento paieska kartojama " + counter);
+//				System.out.println("NoSuchElementException - elemento paieska kartojama " + counter);
+				logger.error("NoSuchElementException - elemento paieska kartojama " + counter);
+				
 			}
 		} while (!isPresent && counter != time);
 
@@ -153,14 +156,16 @@ public class Base {
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
-				System.out.println("StaleElementReferenceException - elemento paieska kartojama " + attempts);
+//				System.out.println("StaleElementReferenceException - elemento paieska kartojama " + attempts);
+				logger.error("StaleElementReferenceException - elemento paieska kartojama " + attempts);
 			} catch (NoSuchElementException e) {
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e2) {
 					e2.printStackTrace();
 				}
-				System.out.println("NoSuchElementException - elemento paieska kartojama " + attempts);
+//				System.out.println("NoSuchElementException - elemento paieska kartojama " + attempts);
+				logger.error("NoSuchElementException - elemento paieska kartojama " + attempts);
 			}
 			attempts++;
 		} while (attempts < time);
@@ -202,7 +207,8 @@ public class Base {
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
-				System.out.println("StaleElementReferenceException - elemento paieska kartojama " + attempts);
+//				System.out.println("StaleElementReferenceException - elemento paieska kartojama " + attempts);
+				logger.error("StaleElementReferenceException - elemento paieska kartojama " + attempts);
 
 			} catch (NoSuchElementException e) {
 
@@ -211,7 +217,9 @@ public class Base {
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
-				System.out.println("NoSuchElementException - elemento paieska kartojama " + attempts);
+//				System.out.println("NoSuchElementException - elemento paieska kartojama " + attempts);
+				logger.error("NoSuchElementException - elemento paieska kartojama " + attempts);
+				
 
 			}
 			attempts++;
@@ -243,14 +251,17 @@ public class Base {
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
-				System.out.println("StaleElementReferenceException - elemento paieska kartojama " + attempts);
+//				System.out.println("StaleElementReferenceException - elemento paieska kartojama " + attempts);
+				logger.error("StaleElementReferenceException - elemento paieska kartojama " + attempts);
 			} catch (NoSuchElementException e) {
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e2) {
 					e2.printStackTrace();
 				}
-				System.out.println("NoSuchElementException - elemento paieska kartojama " + attempts);
+//				System.out.println("NoSuchElementException - elemento paieska kartojama " + attempts);
+				logger.error("NoSuchElementException - elemento paieska kartojama " + attempts);
+				
 			}
 			attempts++;
 		} while (attempts < time);

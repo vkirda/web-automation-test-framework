@@ -6,17 +6,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 
 public class ScreenshotMaker {
+	
+	private static final Logger logger = LogManager.getLogger(ScreenshotMaker.class);
 
 	public void makeScr(ITestResult result, WebDriver driver) {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
-			System.out.println("Testas feilino daroma nuotrauka");
+//			System.out.println("Testas feilino daroma nuotrauka");
+			logger.error("Testas feilino daroma nuotrauka");
+			
 
 			try {
 				String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());

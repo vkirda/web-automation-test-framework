@@ -15,8 +15,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import pageObjects.ToolsQAAutomationPracticeTable;
+//import pageObjects.ToolsQAAutomationPracticeTable;
 import pageObjects.ToolsQAWebPageMain;
 import resources.Base;
 import resources.FileUpload;
@@ -25,6 +27,8 @@ import resources.ScreenshotMaker;
 public class Demo {
 
 	WebDriver driver;
+	
+	private static final Logger logger = LogManager.getLogger(Demo.class);
 
 	Base d = new Base();
 
@@ -45,7 +49,7 @@ public class Demo {
 			String header2, String downloadDirLocation) {
 
 		ToolsQAWebPageMain tqa = new ToolsQAWebPageMain(driver);
-		ToolsQAAutomationPracticeTable pt = new ToolsQAAutomationPracticeTable(driver);
+//		ToolsQAAutomationPracticeTable pt = new ToolsQAAutomationPracticeTable(driver);
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
@@ -54,12 +58,14 @@ public class Demo {
 
 		
 		Assert.assertEquals(driver.findElement(tqa.getHeader()).getText(), header1);
+		logger.info("Header of main page verified");
 
 		d.click(driver, tqa.getFirstLink(), 5);
+		
 
 		d.click(driver, tqa.getSecondLink(), 5);
 
-		Assert.assertEquals(driver.findElement(pt.getHeader()).getText(), header2);
+//		Assert.assertEquals(driver.findElement(pt.getHeader()).getText(), header2);
 
 		driver.navigate().back();
 
@@ -101,15 +107,25 @@ public class Demo {
 		d.select(driver, tqa.getSeleniumCommands(), webECommands, 5);
 
 		Assert.assertEquals(d.getTextOfinput(driver, tqa.getFirstName()), name);
+		logger.info("Name verified successfully");
 		Assert.assertEquals(d.getTextOfinput(driver, tqa.getLastName()), lastName);
+		logger.info("Last name verified successfully");
 		Assert.assertTrue(driver.findElement(tqa.getSexRadioMaleImput()).isSelected());
+		logger.info("Gender radio button selected successfully");
 		Assert.assertEquals(d.getTextOfinput(driver, tqa.getDate()), date);
+		logger.info("Date entered successfully");
 		Assert.assertTrue(driver.findElement(tqa.getProfession()).isSelected());
+		logger.info("Profession checkbox selected successfully");
 		Assert.assertTrue(d.getTextOfinput(driver, tqa.getImportButton()).contains("pictureForUpload.JPG"));
+		logger.info("Picture uploaded successfully");
 		Assert.assertTrue(d.isFileDownloaded(downloadDirLocation, "Test-File-to-Download.xlsx"));
+		logger.info("File downloaded successfully");
 		Assert.assertTrue(driver.findElement(tqa.getAutomationTool()).isSelected());
+		logger.info("Automation tool checkbox selected successfully");
 		Assert.assertEquals(d.verifySelect(driver, tqa.getContinents()), continent);
+		logger.info("Continents dropdown selected successfully");
 		Assert.assertEquals(d.verifySelect(driver, tqa.getSeleniumCommands()), webECommands);
+		logger.info("Selenium commands dropdown selected successfully");
 
 	}
 

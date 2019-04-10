@@ -2,12 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Demo Suite]">
   <test thread-count="5" name="Demo Test(failed)">
+    <parameter name="continent" value="Europe"/>
+    <parameter name="downloadDirLocation" value="C:\\Users\\Vilmis\\Downloads"/>
+    <parameter name="lastName" value="Kirda"/>
+    <parameter name="header2" value="Automation Practice Table"/>
+    <parameter name="header1" value="Automation Practice Form"/>
+    <parameter name="webECommands" value="WebElement Commands"/>
+    <parameter name="name" value="Vilmantas"/>
     <classes>
       <class name="testCasess.Demo">
         <methods>
           <include name="beforeTest"/>
           <include name="afterMethod"/>
-          <include name="demo"/>
+          <include name="demo" invocation-numbers="0"/>
           <include name="afterTest"/>
         </methods>
       </class> <!-- testCasess.Demo -->
