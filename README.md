@@ -22,3 +22,9 @@ If you don't change - test still would run, but eventually will break on asserti
 Open CMD and change directory to where *DemoTestng.xml* file is located.<br/>
 In my case *cd C:\Users\Vilmis\Desktop\Nauja JAVA\web-automation-test-framework*.<br/>
 Then type *mvn clean test -Dsurefire.suiteXmlFiles=DemoTestng.xml* and test should run.
+
+### Results.
+
+Screenshots on fail: *(path to workspace directory)/ScreenShots*.<br/>
+Logs to console and to file. File location: *(path to workspace directory)/demoLog.log*.<br/>
+Reports: *(path to workspace directory)/test-output/index.html*
