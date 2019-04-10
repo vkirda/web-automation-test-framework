@@ -4,7 +4,9 @@ Selenium+Testng+Java test framework with demo test
 ### Prerequisites.
 
 In order test to work - need to instal JAVA and Maven.<br/>
+JAVA jre and jdk installation guides: https://www.youtube.com/watch?v=Zx3ceLdFm64 and https://www.youtube.com/watch?v=poAoOjwFI2k;<br/>
 Verify is Java instaled: at windows CMD type *java -version*;<br/>
+Maven installation guide: https://www.youtube.com/watch?v=6AVC3X88z6E;<br/>
 Verify is Maven instaled: type *mvn -v*.
 
 ### How to run it successfully.
