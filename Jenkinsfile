@@ -3,11 +3,8 @@ pipeline {
   stages {
     stage('testStageName') {
       steps {
-        build 'testJob'
+        build 'mvn clean test -Dsurefire.suiteXmlFiles=DemoTestng.xml'
       }
     }
-  }
-  environment {
-    testName = 'testValue'
   }
 }
