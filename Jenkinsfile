@@ -8,7 +8,8 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'mvn clean test -Dsurefire.suiteXmlFiles=DemoTestng.xml'
+        def mvnHome = tool name: 'apache-maven-3.6.1', type: 'maven'
+        sh '${mvnHome}/bin/mvn clean test -Dsurefire.suiteXmlFiles=DemoTestng.xml'
       }
     }
   }
