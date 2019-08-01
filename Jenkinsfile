@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'mvn clean test -Dsurefire.suiteXmlFiles=DemoTestng.xml'
+        bat 'mvn clean test -Dsurefire.suiteXmlFiles=DemoTestng.xml'
       }
     }
   }
