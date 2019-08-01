@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('testStageName') {
+    stage('Test') {
       steps {
-        build 'mvn clean test -Dsurefire.suiteXmlFiles=DemoTestng.xml'
+        sh 'mvn clean test -Dsurefire.suiteXmlFiles=DemoTestng.xml'
       }
     }
   }
