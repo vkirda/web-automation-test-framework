@@ -1,3 +1,5 @@
+# This framework is outdated
+
 # web-automation-test-framework
 Selenium+Testng+Java test framework with demo test
 
